@@ -1,21 +1,36 @@
-# ABC-ERC721
+# hardhat-erc721-starter
 
 ## Quick start
 
 ```sh
-git clone https://github.com/????
-cd ABC-ERC721
+cd hardhat-erc721-starter
 npm i
 # list hardhat tasks:
 npx hardhat
 ```
-# install hardhat-shorthand
+### Install hardhat-shorthand
+Allows you to use the shorthand "hh" == npx hardhat
 ```sh
 npm i -g hardhat-shorthand
 hardhat-completion install
-hh == npx hardhat
 ```
-Clean, compile and test:
+
+### Set up Rinkeby Test Network and Infura Key
+Get ether on Rinkeby:
+https://faucet.rinkeby.io/
+
+Create free accounts on:
+https://infura.io
+https://etherscan.io
+
+Create .env from .env.sample (listed in .gitignore) supplying the following values:
+```sh
+RINKEBY_PRIVATE_KEY=
+INFURA_API_KEY=
+ETHERSCAN_API_KEY=
+```
+
+### Clean, compile and test:
 ```sh
 hh clean
 hh compile
@@ -23,7 +38,8 @@ hh test
 
 npm hardhat coverage
 ```
-## Local test deployment and upgrade
+
+### Local test deployment and upgrade
 
 ```sh
 hh node
@@ -32,34 +48,14 @@ On a new terminal, go to the repository's root folder and run this to
 deploy your contract:
 
 ```sh
-hh run --network localhost scripts/deploy-abc.ts
+hh run --network localhost scripts/deploy.ts
 ```
 
-Then, copy the contract address from the console output from above and replace
-<CONTRACT_ADDRESS> in scripts/sample-burn.ts and run:
-
+## Rinkeby Testnet, Etherscan
 ```sh
-hh run --network localhost scripts/sample-burn.ts
+hh run --network rinkeby scripts/deploy.ts
 ```
-## Ropsten Testnet, Etherscan
-Get ether on Ropsten:
-https://faucet.ropsten.be//
-
-Create free accounts on:
-https://infura.io
-https://etherscan.io
-
-Create .env from .env.sample (listed in .gitignore) supplying the following values:
+To verify via etherscan, use the address from the .openzeppelin/rinkeby.json generated from above:
 ```sh
-ROPSTEN_PRIVATE_KEY=
-INFURA_API_KEY=
-ETHERSCAN_API_KEY=
-```
-
-```sh
-hh run --network ropsten scripts/deploy-abc.ts
-```
-To verify via etherscan, use the address from the .openzeppelin/ropsten.json generated from above:
-```sh
-hh verify --network ropsten <ADDRESS_FROM_.openzeppelin/ropsten.json>
+hh verify --network rinkeby <ADDRESS_FROM_.openzeppelin/rinkeby.json>
 ```
