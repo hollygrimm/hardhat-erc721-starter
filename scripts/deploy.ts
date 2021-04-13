@@ -8,8 +8,8 @@ let abcFactory: ABC__factory;
 let deployer: SignerWithAddress,
   Artist2: SignerWithAddress,
   Artist1: SignerWithAddress,
-  Beadwork: SignerWithAddress,
-  Araphahoe: SignerWithAddress;
+  Artist3: SignerWithAddress,
+  Artist4: SignerWithAddress;
 
 const name = 'ABC ERC721 minter';
 const symbol = 'ABC';
@@ -22,7 +22,7 @@ interface TokenPrototype {
 }
 
 async function main() {
-  [deployer, Artist2, Artist1, Beadwork, Araphahoe] = await ethers.getSigners();
+  [deployer, Artist2, Artist1, Artist3, Artist4] = await ethers.getSigners();
   abcFactory = (await ethers.getContractFactory(
     'ABC',
     deployer
@@ -46,11 +46,11 @@ async function main() {
     },
     {
       id: 2,
-      owner: Beadwork,
+      owner: Artist3,
     },
     {
       id: 3,
-      owner: Araphahoe,
+      owner: Artist4,
     },
   ];
 
