@@ -27,7 +27,7 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   solidity: {
-    compilers: [{ version: "0.8.3", settings: {} }],
+    compilers: [{ version: "0.8.4", settings: {} }],
   },
   networks: {
     hardhat: {},
@@ -35,11 +35,6 @@ const config: HardhatUserConfig = {
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`,
       accounts: [RINKEBY_PRIVATE_KEY],
-      gasPrice: 50000000000, // 50 gwei,
-    },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [ROPSTEN_PRIVATE_KEY],
       gasPrice: 50000000000, // 50 gwei,
     },
     coverage: {
